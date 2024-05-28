@@ -1,0 +1,4 @@
+
+begin
+  WRITELN(MaxInt)
+end.
