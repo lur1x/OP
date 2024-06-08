@@ -1,0 +1,110 @@
+<?php
+
+const HOST = 'localhost';
+const USERNAME = 'root';
+const PASSWORD = '';
+const DATABASE = 'blog';
+
+function createDBConnection(): mysqli {
+  $conn = new mysqli(HOST, USERNAME, PASSWORD, DATABASE);
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
+  return $conn;
+}
+
+function closeDBConnection(mysqli $conn): void {
+  $conn->close();
+}
+
+function getAndPrintPostsFromDB(mysqli $conn) {
+  $sql = "SELECT * FROM post";
+  $result = $conn->query($sql);
+  $finalArr = [];
+  if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+      $finalArr[] = [
+        "id" => $row['post_id'],
+        "title" => $row['title'],
+        "subtitle" => $row['subtitle'],
+        "main_img" => $row['image_url'],
+        "img_modifier" => $row['author_url'],
+        "author" => $row['author'],
+        "date" => $row['publish_date'],
+        "button" => FALSE,
+        "featured" => $row['featured'],
+        'content' => $row['content']
+      ];
+    }
+  }
+  return $finalArr;
+}
+
+$posts = [];
+$postRecent = [];
+
+$conn = createDBConnection();
+$exitpost = getAndPrintPostsFromDB($conn);
+
+foreach ($exitpost as $post) {
+  if ($post['featured'] == 1) $posts[] = $post;
+  else $postRecent[] = $post;
+}
+
+closeDBConnection($conn);
+$dataAsJson = file_get_contents("php://input");
+$dataAsArray = json_decode($dataAsJson, true);
+
+if ($dataAsArray['author_url'] && $dataAsArray['image_url']) {
+  $author_image = splitToImgName($dataAsArray['author_url']);
+  $main_img = splitToImgName($dataAsArray['image_url']);
+
+  saveImage($dataAsArray['author_image'], $author_image);
+  saveImage($dataAsArray['image'], $main_img);
+} else {
+  error_log('Err >>> Нет значения author_url и/или image_url');
+  echo 'Err >>> Нет значения author_url и/или image_url';
+}
+
+function splitToImgName(string $img_str) {
+  return explode('.', explode('/' ,$img_str)[3])[0];
+}
+
+function saveImage(string $imageBase64, $name) {
+  $imageBase64Array = explode(';base64,', $imageBase64);
+  $imgExtention = str_replace('data:image/', '', $imageBase64Array[0]);
+  $imageDecoded = base64_decode($imageBase64Array[1]);
+  saveFile("./images/{$name}.{$imgExtention}", $imageDecoded);
+}
+
+function saveFile(string $file, string $data): void {
+  $myFile = fopen($file, 'w');
+  if ($myFile) {
+    $result = fwrite($myFile, $data);
+    if (!$result) {
+      echo 'Произошла ошибка при сохранении данных в файл';
+    }
+    fclose($myFile);
+  } else {
+    echo 'Произошла ошибка при открытии файла!';
+  }
+}
+
+function insertDataIntoDB($conn, $dataAsArray):void {
+  if ($dataAsArray['image_url'] && $dataAsArray['author_url'] && $dataAsArray['author_image'] && $dataAsArray['image'] && $dataAsArray['content']) {
+    $sql = "INSERT INTO post (title, subtitle, publish_date, author, author_url, image_url, content) VALUES ('{$dataAsArray['title']}', '{$dataAsArray['subtitle']}', '{$dataAsArray['date']}', '{$dataAsArray['author']}', '{$dataAsArray['author_url']}', '{$dataAsArray['image_url']}', '{$dataAsArray['content']}');";
+    if(mysqli_query($conn, $sql)){
+      echo "Данные успешно добавлены";
+    } else {
+      echo "что-то пошло не так";
+    }
+  } else {
+    error_log('Err >>> Нет каких-то значений');
+    echo "какие-то данные не пришли!";
+  }
+}
+
+$conn = createDBConnection();
+insertDataIntoDB($conn, $dataAsArray);
+closeDBConnection($conn);
+?>

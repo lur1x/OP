@@ -1,5 +1,5 @@
 PROGRAM TestRemove(INPUT, OUTPUT);
-{Читает строку из входа ,пропускает ее через RemoveExtraBlanks}
+{Читает строку из входа, пропускает ее через RemoveExtraBlanks}     {лишний пробел перед запятой}
 USES Queue;
 VAR
   Ch: CHAR;
@@ -10,9 +10,9 @@ VAR
 BEGIN {RemoveExtraBlanks}
   Blank := ' ';
   LineEnd := '$';
-  AddQ(LineEnd); {помечаем конец текста в очереди}
+  AddQ(LineEnd); {Помечаем конец текста в очереди}
   HeadQ(Ch);
-  {удаляем пробелы}
+  {Удаляем пробелы}
   WHILE Ch <> LineEnd
   DO
     BEGIN
@@ -33,7 +33,7 @@ BEGIN {RemoveExtraBlanks}
       THEN
         AddQ(Blank)
     END;
-  DelQ {удаяем LineEnd из очереди}
+  DelQ {Удаляем LineEnd из очереди}
 END; {RemoveExtraBlanks}
 BEGIN {TestRemove}
   EmptyQ;
@@ -43,7 +43,7 @@ BEGIN {TestRemove}
     BEGIN
       READ(Ch);
       WRITE(Ch);
-      AddQ(Ch);
+      AddQ(Ch) {лишняя ;}
     END;
   WRITELN;
   RemoveExtraBlanks;

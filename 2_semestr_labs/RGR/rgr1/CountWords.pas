@@ -1,7 +1,7 @@
 PROGRAM CountWords;
 USES StatisticWords;
 CONST 
-  InputFile = 'INPUT.TXT';
+  InputFile = 'INPUT3.TXT';
   StatisticFile = 'OUTPUT.TXT';
 VAR
   InFile, OutFile: TEXT;

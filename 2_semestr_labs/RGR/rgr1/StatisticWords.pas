@@ -8,43 +8,31 @@ INTERFACE {INTERFACE}
 
 IMPLEMENTATION {IMPLEMENTATION}
   CONST 
-    MaxWords = 5;
-  PROCEDURE PrintStatistic(VAR OutFile: TEXT; Root: Tree);
-  BEGIN {PrintStatistic}
-    IF Root <> NIL
-    THEN
-      BEGIN
-        PrintStatistic(OutFile, Root^.LLink);
-        WRITELN(OutFile, Root^.Word, ' ', Root^.Counter);
-        PrintStatistic(OutFile, Root^.RLink)
-      END
-  END; {PrintStatistic}
+    MaxWords = 10;
  
   PROCEDURE GetStatisticWords(VAR InFile, OutFile: TEXT);
   VAR
     Word: STRING;
-    Root: Tree;
     CounterWords: INTEGER;
   BEGIN {GetStatisticWords}
-    Root := NIL; 
     CounterWords := 0;
-    WHILE (NOT EOF(InFile)) AND (CounterWords <= MaxWords)
+    WHILE (NOT EOF(InFile)) AND (CounterWords < MaxWords)
     DO
       BEGIN
-        WHILE (NOT EOLN(InFile)) AND (CounterWords <= MaxWords)
+        WHILE (NOT EOLN(InFile)) AND (CounterWords < MaxWords)
         DO 
           BEGIN
             ReadWord(InFile, Word); 
             IF (Word <> '') AND (Word <> '-') 
             THEN
               BEGIN
-                Insert(Root, Word);
+                Insert(Word);
                 CounterWords := CounterWords + 1
               END
           END;
         READLN(InFile)
       END;
-    PrintStatistic(OutFile, Root)  
+    PrintStatistic(OutFile)  
   END; {GetStatisticWords}
 {IMPLEMENTATION}
 

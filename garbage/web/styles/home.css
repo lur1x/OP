@@ -1,0 +1,390 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.header {
+  background-image: url(../images/canyon.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.container {
+  max-width: 940px;
+  margin: 0px auto;
+}
+
+.menu {
+  height: 74px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.return-button {
+  position: relative;
+  width: 95px;
+  height: 74px;
+}
+
+.escape {
+  color: #FFFFFF;
+  ;
+  position: absolute;
+  padding: 20px 0px 20px;
+  text-decoration: none;
+  font-family: Lora;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.navigation {
+  flex-shrink: 0;
+  width: 380px;
+}
+
+.navigation__list {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.navigation-item {
+  margin: 27px 0px;
+}
+
+.navigation-link {
+  color: #FFFFFF;
+  ;
+  font-family: Oxygen;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  padding: 27px 0px;
+  letter-spacing: 0.6px;
+  text-align: left;
+  text-decoration: none;
+}
+
+.header__banner {
+  padding: 114px 0px 148.6px;
+}
+
+.header__banner__title {
+  color: #FFFFFF;
+  ;
+  margin: 0 auto;
+  max-width: 500px;
+  font-family: Lora;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 51px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.header__banner__subtitle {
+  color: #FFFFFF;
+  ;
+  margin: 0 auto;
+  max-width: 504px;
+  font-family: Oxygen;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+.header__banner__button {
+  color: #FFFFFF;
+  display: block;
+  margin: 0 auto;
+  max-width: 170px;
+  padding: 12px 25px;
+  background: #DD783F;
+  text-decoration: none;
+  position: relative;
+  border: none;
+}
+
+.footer {
+  background-image: url('../images/footer-fon.png');
+  background-size: 100%;
+}
+
+.categories {
+  background-color: #FFFFFF;
+}
+
+.categories__list {
+  display: flex;
+  height: 65px;
+  list-style-type: none;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.categories-item {
+  padding: 21px 5px;
+}
+
+.categories-link {
+  padding: 21px 5px;
+  font-family: Lora;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #768088;
+  text-decoration: none;
+}
+
+.main {
+  background: #F7F7F7;
+}
+
+.section-second_size {
+  padding-bottom: 99px;
+}
+
+.section__title {
+  margin: 0 auto;
+  padding: 60px 0px 10px 0px;
+  font-family: Oxygen;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #2E2E2E;
+}
+
+.section__dash {
+  margin: 0 auto;
+  max-width: 188px;
+  height: 1px;
+  margin-bottom: 15px;
+  background: #dededede;
+}
+
+.section__post-block {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 10px -10px 10px -10px;
+  justify-content: space-around;
+}
+
+.post-block-for-second {
+  width: 460px;
+  height: 280px;
+  margin-bottom: 20px;
+  background-color: #768088;
+  position: relative;
+}
+
+.post-block-for-second--link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.the-road-ahead-block {
+  background-image: url('../images/northern-lights.png');
+}
+
+.categories_have {
+  margin: 20px 0px 0px 20px;
+  padding: 6px 9px;
+  display: inline-block;
+  background-color: #DD783F;
+  font-family: Oxygen;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 13px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+.categories_havnt {
+  margin: 20px 0px 0px 20px;
+  padding: 6px 9px;
+  display: inline-block;
+  height: 23px;
+}
+
+.post-block-for-second__info {
+  padding-top: 53px;
+  margin: 0 auto;
+  max-width: 460px;
+}
+
+.post-block-for-second__info__title {
+  display: inline-block;
+  padding: 58px 0px 0px 20px;
+  font-family: Lora;
+  font-size: 27px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+.post-block-for-second__info__subtitle {
+  display: inline-block;
+  padding: 6px 0px 0px 20px;
+  font-family: Oxygen;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #FFFFFFB2;
+}
+
+.post-block-for-second__info__about {
+  height: 55px;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.about__author {
+  width: 110px;
+  display: flex;
+}
+
+.about__author__avatar {
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  margin-top: 5px;
+}
+
+.mat-vogels {
+  background-image: url('../images/mat-vogels.png');
+}
+
+.william-wong {
+  background-image: url('../images/william-wong.png');
+}
+
+.about__author__name {
+  display: inline-block;
+  padding-left: 5px;
+  font-family: Oxygen;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 35px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #7A7A7A;
+}
+
+.about__data {
+  font-family: Oxygen;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 35px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #7A7A7A;
+}
+
+.from-top-down {
+  background-image: url('../images/air-lanterns.png');
+}
+
+.post-block-for-third {
+  width: 296px;
+  height: 291px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.post-block-for-third--link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.post-block-for-third__img {
+  width: 296px;
+  height: 150px;
+}
+
+.still-standing-tall {
+  background-image: url('../images/baloons.jpg');
+}
+
+.post-block-for-third__info {
+  height: 93px;
+  background-color: #FFFFFF;
+}
+
+.post-block-for-third__info__title {
+  padding: 14px 0px 0px 13px;
+  display: inline-block;
+  font-family: Lora;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #101315;
+}
+
+.post-block-for-third__info__subtitle {
+  padding: 6px 13px;
+  display: inline-block;
+  font-family: Oxygen;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #7A7A7A;
+}
+
+.post-block-for-third__info__about {
+  margin-top: 2px;
+  height: 46px;
+  background-color: #FFFFFF;
+}
+
+.post-block-for-third__info__about {
+  height: 55px;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #FFFFFF;
+}
+
+.sunny-side-up {
+  background-image: url('../images/bridge.png');
+}
+
+.water-falls {
+  background-image: url('../images/lake.png');
+}
+
+.throught-the-mist {
+  background-image: url('../images/ocean.png');
+}
+
+.awaken-early {
+  background-image: url('../images/smoke.png');
+}
+
+.try-it-always {
+  background-image: url('../images/waterfall.png');
+}
