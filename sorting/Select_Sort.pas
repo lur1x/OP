@@ -60,7 +60,6 @@ BEGIN {SelectSort}
       RESET(F1);
       READ(F1, Ch)
     END;
-  WRITELN(OUTPUT);
-
+  WRITELN(OUTPUT)
 END. {SelectSort}
 
